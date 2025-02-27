@@ -2,15 +2,20 @@ from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
 
+from crewai import LLM
 
 load_dotenv()
 
+llm = LLM(
+    model="groq/deepseek-r1-distill-qwen-32b",
+    temperature=0.0
+)
 
 model = "deepseek-r1-distill-qwen-32b"
 
 api_key = os.getenv("groq_api_key")
 
-llm = ChatGroq(model=model, api_key=api_key, temperature=0.0)
+# llm = ChatGroq(model=model, api_key=api_key, temperature=0.0)
 
 system_prompt = """
 You run in a loop of Thought, Action, PAUSE, Observation.
