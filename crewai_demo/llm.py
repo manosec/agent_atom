@@ -6,14 +6,17 @@ from crewai import LLM
 
 load_dotenv()
 
-llm = LLM(
+groq_llm = LLM(
     model="groq/deepseek-r1-distill-qwen-32b",
     temperature=0.0
 )
 
-model = "deepseek-r1-distill-qwen-32b"
 
-api_key = os.getenv("groq_api_key")
+gemini_llm = LLM(
+    model="gemini/gemini-1.5-pro-latest",
+    temperature=0.0,
+)
+
 
 # llm = ChatGroq(model=model, api_key=api_key, temperature=0.0)
 
